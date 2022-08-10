@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <utility>
+
+using namespace std;
+
+int main()
+{
+    int n; // no. of nodes
+    int e; // no. of edges
+    cin >> n >> e;
+    // adjacency list form 
+    vector<pair<int, int>> arr[n];  // creating vector 
+    for (int i = 0; i < e; i++)   // iterating for no of edges
+    {
+        int node1, node2;  // source , destination
+        int weight;         // corresponding weight
+        cin >> node1 >> node2 >> weight;
+        arr[node1].push_back(make_pair(node2, weight));
+    }
+
+    for (int i=0 ; i<n ; i++)   // printing
+    {
+        cout << arr[0][i].first << " ";
+        for (int j = 0; j < arr[i].size(); j++)
+        {
+            cout << "-> " << arr[i][j].first << " weight: " << arr[i][j].second << " ";
+        }
+    }
+
+    return 0;
+}
